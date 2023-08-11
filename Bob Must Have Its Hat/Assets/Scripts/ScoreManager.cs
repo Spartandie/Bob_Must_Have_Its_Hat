@@ -18,18 +18,20 @@ public class ScoreManager : MonoBehaviour
 
     public float pointsPerSecond;
 
-    // If the player is still alive
+    // If the player is still alive bool
     public bool scoreIncreasing;
 
     // Start is called before the first frame update
     void Start()
     {
+        // If the player have a High Score saved, set it
         if (PlayerPrefs.HasKey("HighScore"))
         {
             // Get the value stored in the HighScore PlayerPref
             highScoreCounter = PlayerPrefs.GetFloat("HighScore");
         }
 
+        // If the player have coins saved, set them
         if (PlayerPrefs.HasKey("Coins"))
         {
             // Get the value stored in the Coins PlayerPref
@@ -41,6 +43,7 @@ public class ScoreManager : MonoBehaviour
     void Update()
     {
 
+        // If the player is still alive or the game isn't paused
         if (scoreIncreasing)
         {
             // Add the respective points respective to the time the frame takes to hapen, so that in 1 sec we end up having
@@ -48,22 +51,30 @@ public class ScoreManager : MonoBehaviour
             scoreCounter += pointsPerSecond * Time.deltaTime;
         }
 
-        if( scoreCounter > highScoreCounter)
+        // If the player Score is greater than his previuos high score update the high score
+        if (scoreCounter > highScoreCounter)
         {
+            // Set the high score counter
             highScoreCounter = scoreCounter;
 
-            // A simple way to save data
+            // Save the High Score of the player in his player prefs
             PlayerPrefs.SetFloat("HighScore", highScoreCounter);
         }
 
+        // Update the score text
         scoreText.text = "Dist.: " + Mathf.Round(scoreCounter) + " Km";
-        HighscoreText.text = "Dist. máx.: " + Mathf.Round(highScoreCounter) + " Km";
 
-        coinsText.text = coinsCounter.ToString();//"Coins: " + 
+        // Update the high score text
+        HighscoreText.text = "Dist. max.: " + Mathf.Round(highScoreCounter) + " Km";
+
+        // Update the coins text
+        coinsText.text = coinsCounter.ToString();
     }
 
+    // Function that adds "coinsToAdd" coins to the player
     public void AddCoins(int coinsToAdd)
     {
+        // Add "coinsToAdd" coins to the "coinsCounter" variable of the player
         coinsCounter += coinsToAdd;
     }
 }

@@ -8,17 +8,15 @@ public class PlayerController : MonoBehaviour
      * The public variables can be seen and modified thru the UI
      */
 
-    // Variable that sets the move speed and jump force aplied to the player, setted in the UI
+    // Variables that set the move speed and jump force aplied to the player, setted in the UI
     public float moveSpeed;
     public float speedLimit;
     public float speedMultiplier;
     public float speedIncreaseDistance;
     private float speedDistanceCounter;
-    // Store the 
-    /*private float moveSpeedStore;*/
     public float jumpForce;
 
-    // The time the plaer can hold the jump button to jump higher
+    // The time the player can hold the jump button to jump higher
     public float jumpTime;
     private float jumpTimeCounter;
 
@@ -27,7 +25,7 @@ public class PlayerController : MonoBehaviour
 
     // Bool to see if the player is in the ground
     public bool grounded;
-    
+
     // The layer wich is suposed to act as ground to let the player jump when standing on it
     public LayerMask whatIsGround;
 
@@ -40,22 +38,27 @@ public class PlayerController : MonoBehaviour
     // Collider to register if the player is touching the floor
     private Collider2D myCollider;
 
-    //public string killBoxTag = "killBox";
-
     public bool invencibleActive = false;
 
+    // The Game Manager reference
     public GameManager theGameManager;
 
+    // A reference to the Character database
     public CharacterDatabase skinsDB;
+
+    // A reference to the Character (skin of the player)
     private Character characterSkin;
-    //public BobController theBob;
+
+    // A reference to "the bob" Game Object
     public GameObject theBob;
+
+    // A reference to the SFX Manager
     public SFXManager theSFXManager;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+
         // Get the player rigidbody
         player = GetComponent<Rigidbody2D>();
 
@@ -65,118 +68,86 @@ public class PlayerController : MonoBehaviour
         // Initialize jumpTimeCounter
         jumpTimeCounter = jumpTime;
 
-
-        // Initialize the Ground Check obj
-        //groundCheck = GameObject.Find("GroundCheck");
-
-        /*moveSpeedStore = moveSpeed;
-        speedMilestoneCounter*/
+        // Set the speedDistanceCounter to later on increase the movement speed of the player
         speedDistanceCounter = speedIncreaseDistance;
 
+        // Get the skin equiped of the player
         string skinEquiped = PlayerPrefs.GetString("PlayerEquipedSkin");
-        //Debug.Log(skinEquiped);
-        //Debug.Log(skinsDB.CharacterCount);
-        
+
+        // For each skin in our skins database search four our equiped skin and set it to the "characterSkin" of our player 
         for (int i = 0; i < skinsDB.CharacterCount; i++)
         {
-            if(skinEquiped == skinsDB.GetCharacter(i).characterName)
+            // If the name of our equiped skin is equal to the "i" skin at our skins database
+            if (skinEquiped == skinsDB.GetCharacter(i).characterName)
             {
-                characterSkin = skinsDB.GetCharacter(i);//Get the character i from the charactersDB
+                //Get the character i from the charactersDB
+                characterSkin = skinsDB.GetCharacter(i);
             }
-            Debug.Log(skinsDB.GetCharacter(i).characterName);
         }
-        SpriteRenderer playerSprite = GetComponent<SpriteRenderer>();
-        playerSprite.sprite = characterSkin.characterSprite;  //Nuestra skin;
 
+        // Create a Sprite Renderer for the player skin
+        SpriteRenderer playerSprite = GetComponent<SpriteRenderer>();
+
+        // Set the player equiped skin
+        playerSprite.sprite = characterSkin.characterSprite;
+
+        // Create a Sprite Renderer for "the bob" skin
         SpriteRenderer bobSprite = theBob.GetComponent<SpriteRenderer>();
+
+        // Set the bob equiped skin
         bobSprite.sprite = characterSkin.bobHatlessCharacterSprite;
         bobSprite.transform.localScale += new Vector3(-0.3f, -0.3f, -0.3f);
-        //theBob.bobSprite.sprite = characterSkin.bobHatlessCharacterSprite;
-        //theBob.bobSprite.transform.localScale += new Vector3(-0.3f, -0.3f, -0.3f);
     }
 
     // Update is called once per frame
     void Update()
     {
-        // Check in what the player is standing at this frame
-        //grounded = Physics2D.IsTouchingLayers(myCollider, whatIsGround);
-        // grounded is equal to the state of a circle in the position of our groundCheck obj with groundCheckRadius radious and 
-        // comparing if its touchin whatIsGround
+
+        // Grounded state depends of the circle in the position of our groundCheck object with groundCheckRadius radius and 
+        // comparing if it's touching whatIsGround
         grounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, whatIsGround);
 
+        // If the player is beyond the "speedDistanceCounter" and it's move speed is not above the speed limit
         if (transform.position.x > speedDistanceCounter && moveSpeed < speedLimit)
         {
+            // Increase the "speedDistanceCounter" by "speedIncreaseDistance" so the speed increments in x + y meters next time (more distance)
             speedDistanceCounter += speedIncreaseDistance;
 
+            // Change the value of the "speedIncreaseDistance" using the speedMultiplier
             speedIncreaseDistance *= speedMultiplier;
 
+            // Change the value of the "moveSpeed" using the speedMultiplier
             moveSpeed *= speedMultiplier;
         }
 
         // Aply a force in the "x" axis of the player while maintaining it�s velocity in the "y" axis
-        player.velocity = new Vector2( moveSpeed, player.velocity.y );
+        player.velocity = new Vector2(moveSpeed, player.velocity.y);
 
         /*
          *  If SPACE, LEFT-CLICK, UP-ARROW or W are pressed and the player is in the ground, he can jump 
         */
-        if( Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0) || Input.GetKey("up") || Input.GetKey("w") )
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0) || Input.GetKey("up") || Input.GetKey("w"))
         {
-            if( grounded )
+            if (grounded)
             {
                 // Maintaining the player "x" axis velocity while adding a jumpforce equal to the jump force value in the "y" axis
                 player.velocity = new Vector2(player.velocity.x, jumpForce);
                 theSFXManager.PlayJumpSound();
             }
         }
-        /*
-        // If the player wants to jump and is holding down the jump key
-        if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0) || Input.GetKey("up") || Input.GetKey("w"))
-        {
-            if(jumpTimeCounter > 0)
-            {
-                // Apply the jumpForce in the "y" axis of the player while maintaining his "x" axis vector
-                player.velocity = new Vector2(player.velocity.x, jumpForce);
-
-                // Subtract values to jumpTimeCounter based on time
-                jumpTimeCounter -= jumpTime * Time.deltaTime;
-            }
-        }
-        
-        // To avoid infinite jump/flying
-        if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0) || Input.GetKey("up") || Input.GetKey("w"))
-        {
-            jumpTimeCounter = 0;
-        }
-
-        // To avoid infinite jump/flying
-        if ( grounded )
-        {
-            jumpTimeCounter = jumpTime;
-        }
-        */
     }
 
-    // When a obj with a box collider touches another obj with a box collider
+    // When a object with a box collider touches another object with a box collider
     public void OnCollisionEnter2D(Collision2D collision)
     {
-        //Collider2D other2DCollider;
-
-        // If our player collides with a game obj that have the "killBox" tag
-        if(!invencibleActive && collision.gameObject.tag == "killBox")//killboxTag == "killBox" && 
+        // If our player collides with a Game object that have the "killBox" tag
+        if (!invencibleActive && collision.gameObject.tag == "killBox")//killboxTag == "killBox" && 
         {
             // Restart the game
             theGameManager.RestartGame();
         }
 
-        /*
-        if (killboxTag == "passThru" && other.gameObject.tag == killBoxTag)
-        {
-            // Set the 2D collider to trigger
-            other2DCollider = GetComponent<Collider2D>();
-            other2DCollider.isTrigger = true;
-        }
-        */
-
+        // If the player is invencible and collides with a wall, spikes or pothole, set the collision GO trigger to true
         if (invencibleActive && (collision.gameObject.name == "wall" || collision.gameObject.name == "spikes" || collision.gameObject.name == "pothole"))
         {
             collision.gameObject.GetComponent<Collider2D>().isTrigger = true;

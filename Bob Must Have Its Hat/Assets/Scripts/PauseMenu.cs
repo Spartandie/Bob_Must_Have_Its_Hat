@@ -6,81 +6,66 @@ using UnityEngine;
 
 public class PauseMenu : MonoBehaviour
 {
+    // Name of the main menu scene
     public string mainMenuLevel;
 
+    // A reference to the pause menu
     public GameObject thePauseMenu;
 
+    // A reference to the quit confirmation menu
     public GameObject theQuitConfirmationMenu;
 
+    // A reference to the time manager
     public TimeManager theTimeManager;
 
     void Start()
     {
+        // Here we set the time manager using FindObjectOfType, in this way Unity handle the search of the desired object
+        // so we dont have to do it manually using the UI
         theTimeManager = FindObjectOfType<TimeManager>();
     }
 
     // Update is called once per frame
     void Update()
-    {
-        /*
-        if (Input.GetKeyDown("p"))
-        {
-            //EventSystem.current.SetSelectedGameObject(this.gameObject);
-            PauseGame();
-        }
-        */
-        
-        if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.P))
-        {
-            theTimeManager.paused = true;
-            PauseGame();
-        }
-        
-        if (Time.timeScale <= 0 && (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.P)))
-        {
-            theTimeManager.paused = false;
-            UnpauseGame();
-        }
-        
-        if (Input.GetKey("r") || Input.GetKey("R"))
-        {
-            RestarGame();
-        }
-
-        if (Input.GetKey("q") || Input.GetKey("Q") || Input.GetKey("m") || Input.GetKey("M"))
-        {
-            QuitToMainMenu();
-        }
+    {   
+     
     }
 
+    // Function that pauses the game
     public void PauseGame()
     {
-        // Freeze the time of the game
+        // Freeze the time of the game so it's paused
         Time.timeScale = 0f;
         thePauseMenu.SetActive(true);
         theTimeManager.paused = true;
     }
 
+    // Function that unpauses the game
     public void UnpauseGame()
     {
+        // Unfreeze the time of the game so it's unpaused
         Time.timeScale = 1f;
         thePauseMenu.SetActive(false);
         theTimeManager.paused = false;
     }
 
+    // Function that restarts the game
     public void RestarGame()
     {
+        // Close the pause menu
         thePauseMenu.SetActive(false);
+
+        // Set the time to 1 (normal)
         Time.timeScale = 1f;
+
+        // Reset the player
         FindObjectOfType<GameManager>().ResetPlayer();
     }
 
+    // Function that quits to the main menu
     public void QuitToMainMenu()
     {
+        // Oppen the quit confirmation menu
         theQuitConfirmationMenu.SetActive(true);
-        /*
-        Time.timeScale = 1f;
-        Application.LoadLevel("Main Menu");
-        */
     }
 }

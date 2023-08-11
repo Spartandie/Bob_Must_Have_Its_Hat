@@ -6,7 +6,7 @@ public class GroundGenerator : MonoBehaviour
 {
     // Get the ground objects
     public GameObject theGround;
-    
+
     // Create the instance of the floor generation point
     public Transform generationPoint;
 
@@ -24,35 +24,26 @@ public class GroundGenerator : MonoBehaviour
     // Counter that will select wich ground is generated
     private int groundSelector;
 
+    // List of the diferent ground widths
     private float[] groundWidths;
 
+    // A reference to the Object Pool
     public ObjectPooler theObjectPool;
 
+    // A array of Object Poolers
     public ObjectPooler[] theObjectPools;
 
+    // A reference to the coin generator
     private CoinGenerator theCoinGenerator;
 
     // Start is called before the first frame update
     void Start()
     {
-        // Width of the ground
+        // Set the width of the ground
         groundWidth = theGround.GetComponent<BoxCollider2D>().size.x;
-        /*
-        groundWidths = new float[theObjectPools.Length];
 
-        for(int i = 0; i < theObjectPools.Length; i++)
-        {
-            groundWidths[i] = theObjectPools[i].pooledObject.GetComponent<BoxCollider2D>().size.x;
-        }
-        */
-        /*
-        groundWidths = new float[theGroundArray.Length];
-
-        for (int i = 0; i < theGroundArray.Length; i++)
-        {
-            groundWidths[i] = theGroundArray[i].GetComponent<BoxCollider2D>().size.x;
-        }
-        */
+        // Here we set the coin generator using FindObjectOfType, in this way Unity handle the search of the desired object
+        // so we dont have to do it manually using the UI
         theCoinGenerator = FindObjectOfType<CoinGenerator>();
     }
 
@@ -60,27 +51,20 @@ public class GroundGenerator : MonoBehaviour
     void Update()
     {
         // If the generation point is behind the transform.position.x, generate more ground ahead
-        if ( transform.position.x < generationPoint.position.x)
+        if (transform.position.x < generationPoint.position.x)
         {
+            // Random distance between platforms generation
             distanceBetween = Random.Range(distanceBetweenMin, distanceBetweenMax);
-
 
             // Move the position of the object
             transform.position = new Vector3(transform.position.x + groundWidth + distanceBetween, transform.position.y, transform.position.z);
-            
-            groundSelector = Random.Range(0, /*theObjectPools*/theGroundArray.Length);
+
+            groundSelector = Random.Range(0, theGroundArray.Length);
 
             // Create the ground
             Instantiate(theGroundArray[groundSelector], transform.position, transform.rotation);
-            /*
-            GameObject newGround = theObjectPools[groundSelector].GetPooledObject();
 
-            newGround.transform.position = transform.position;
-            newGround.transform.rotation = transform.rotation;
-            newGround.SetActive(true);
-
-            transform.position = new Vector3(transform.position.x + (groundWidths[groundSelector] / 2), transform.position.y, transform.position.z);
-            */
+            // Add coins
             theCoinGenerator.SpawnCoins(new Vector3(transform.position.x, transform.position.y + 1f, transform.position.z));
         }
     }

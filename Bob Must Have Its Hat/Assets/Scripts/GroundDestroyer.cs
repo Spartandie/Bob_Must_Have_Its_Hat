@@ -22,9 +22,6 @@ public class GroundDestroyer : MonoBehaviour
         {
             // Then destroy the ground
             Destroy(gameObject);
-
-            
-            //gameObject.SetActive(false);
         }
     }
 }

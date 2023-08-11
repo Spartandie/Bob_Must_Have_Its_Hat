@@ -4,32 +4,38 @@ using UnityEngine;
 
 public class PowerupsManager : MonoBehaviour
 {
-
+    // Variables for the time managmet
     private bool slowMo;
     public float slowMoFactor;
-    private bool invencible;
 
+    // Variables to controll the powerups
+    private bool invencible;
     private bool powerupActive;
     public float powerupActiveDuration;
-
     private float powerupDurationCounter;
 
-    private PlayerController thePlayerController;
-    private TimeManager theTimeManager;
-    //private string killBoxNormalTag = "killBox";
-    //private string killboxTag;
+    // Variables to set the game normal and current speed
     private float gameNormalSpeed;
     private float gameSpeed;
 
-    private GameManager theGameManager;
+    // A reference to the Player controller
+    private PlayerController thePlayerController;
 
+    // A reference to the Time Manager
+    private TimeManager theTimeManager;
+
+    // A reference to the Game Manager
+    private GameManager theGameManager;
 
     // Start is called before the first frame update
     void Start()
     {
+        // Here we set thePlayerController, theTimeManager and theGameManager using FindObjectOfType, in this way 
+        // Unity handle the search of the desired object so we dont have to do it manually using the UI
         thePlayerController = FindObjectOfType<PlayerController>();
         theTimeManager = FindObjectOfType<TimeManager>();
         theGameManager = FindObjectOfType<GameManager>();
+
         gameNormalSpeed = 1;
         Time.timeScale = gameNormalSpeed;
     }
@@ -37,59 +43,57 @@ public class PowerupsManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // If any powerup is active
         if (powerupActive)
         {
+            // Substract to the powerupDurationCounter so it ends in powerupDurationCounter time
             powerupDurationCounter -= Time.unscaledDeltaTime;
-            Debug.Log("powerupDurationCounter: " + powerupDurationCounter);
 
+            // If the powerupReset of the theGameManager is true
             if (theGameManager.powerupReset)
             {
+                // Reset the power up related varaibles
                 powerupDurationCounter = 0;
                 theGameManager.powerupReset = false;
             }
 
+            // If the slowMo is true and our time scale is 1 (normal)
             if (slowMo && Time.timeScale >= 1)
             {
-                Debug.Log("Doing DoSlowmo");
-                theTimeManager.DoSlowmo();//(slowMoFactor, powerupActiveDuration);
+                // Make a slowmo
+                theTimeManager.DoSlowmo();
             }
-            /*
-            if (slowMo)
-            {
-                
-            }
-            */
-            // In function OnCollitionEnter2D()
+
+            // If invencible is true
             if (invencible)
             {
+                // Set invencible as true in thePlayerController
                 thePlayerController.invencibleActive = true;
             }
-            
 
+            // Start decreasing the powerupDurationCounter so the power up ends
             powerupDurationCounter -= Time.deltaTime;
 
+            // If the powerupDurationCounter is less or equal 0.09 seconds
             if (powerupDurationCounter <= 0.09)
             {
-                Debug.Log("Voy a resetear el powerup");
+                // Reset the powerup variables because the powe up time ended
                 gameSpeed = gameNormalSpeed;
                 thePlayerController.invencibleActive = false;
-                //killboxTag = killBoxNormalTag;
                 powerupActive = false;
             }
         }
     }
 
+    // Function that activates a power up when called
     public void ActivatePowerup(bool slowMoRecived, float slowMoFactorRecived, bool invencibleRecived, float durationRecived)
     {
+        // Set the power up related variables so we now have a power up
         slowMo = slowMoRecived;
         slowMoFactor = slowMoFactorRecived;
         invencible = invencibleRecived;
         powerupDurationCounter = durationRecived;
-
         gameSpeed = gameNormalSpeed;
-        //killboxTag = thePlayerController.killBoxTag;
-
-
         powerupActive = true;
     }
 }

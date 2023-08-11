@@ -5,11 +5,18 @@ using UnityEngine;
 [System.Serializable]
 public class Character
 {
+    // Skin name
     public string characterName;
-    public Sprite characterSprite;              //Car with hat
 
-    public Sprite characterHatlessDeadSprite;   //Car with out hat
+    // Player with hat
+    public Sprite characterSprite;
 
-    public Sprite bobHatlessCharacterSprite;    //Bob with out hat
-    public Sprite bobCharacterSprite;           //Bob with hat
+    // Car with out hat
+    public Sprite characterHatlessDeadSprite;
+
+    // Bob with out hat
+    public Sprite bobHatlessCharacterSprite;
+
+    // Bob with hat
+    public Sprite bobCharacterSprite;
 }

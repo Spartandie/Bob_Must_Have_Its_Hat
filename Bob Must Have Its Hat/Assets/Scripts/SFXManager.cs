@@ -12,34 +12,25 @@ public class SFXManager : MonoBehaviour
     public AudioClip jump;
     public static SFXManager theSFXManager;
 
-    /*
-    private void Awake()
-    {
-        if(theSFXManager!= null && theSFXManager != this)
-        {
-            Destroy(this.gameObject);
-            return;
-        }
-        theSFXManager = this;
-        DontDestroyOnLoad(this);
-    }
-    */
-
+    // Function that plays a sound when the Player clicks on something
     public void PlayeClickSound()
     {
         audio.PlayOneShot(click);
     }
 
+    // Function that plays a sound when the Player buys a skin
     public void PlayBuySound()
     {
         audio.PlayOneShot(buy);
     }
 
+    // Function that plays a sound when the Player equips a skin
     public void PlayEquipSound()
     {
         audio.PlayOneShot(equip);
     }
 
+    // Function that plays a sound when the Player jumps
     public void PlayJumpSound()
     {
         audio.PlayOneShot(jump);
