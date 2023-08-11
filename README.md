@@ -3,7 +3,7 @@
 
 **Integrantes:**
 
-* Monroy Salazar Diego Gustavo - Manage & Artist
+* Monroy Salazar Diego Gustavo - Manager & Artist
 * Ventura Ricárdez Jeremy - Music 
 * Muriel González Diego - Coder
 
@@ -25,6 +25,15 @@ Durante el desarrollo del juego se nos ocurrian nuevas ideas, pero también surg
 
 Conforme se acercaron la fecha de entrega tuvimos que recortar más cosas como mecanicas del juego y los powerups, ya que no funcionaban correctamente. Fuimos puliendo errores y la experiencia del juego en general.
 
+<div align="center">
+<br>
+<br>
+<br>
+<br>
+<p align="center">
+  <img src="bob.jpg" alt="Bob" width="100"/>
+</p>
+</div>
 
 
 ## **Conclusión:** 
@@ -42,6 +51,9 @@ Conforme se acercaron la fecha de entrega tuvimos que recortar más cosas como m
 <br>
 <br>
 <br>
+<p align="center">
+  <img src=".png" alt="Logo de Fernando Rosas" width="100"/>
+</p>
 <h3 align="center">Documentado por Monroy Salazar Diego Gustavo y Muriel González Diego</h3>
 </div>
 
