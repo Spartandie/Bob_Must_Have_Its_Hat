@@ -34,7 +34,7 @@ Conforme se acercaron la fecha de entrega tuvimos que recortar más cosas como m
   <img src="bob.jpg" alt="Bob" width="100"/>
 </p>
 <p align="center">
-  <img src="Bobboceto.jpg" alt="Bobboceto" width="100"/>
+  <img src="BobBoceto.jpg" alt="Bobboceto" width="100"/>
 </p>
 <p align="center">
   <img src="Boceto1.jpg" alt="Bobceto1" width="100"/>
