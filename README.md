@@ -33,6 +33,19 @@ Conforme se acercaron la fecha de entrega tuvimos que recortar más cosas como m
 <p align="center">
   <img src="bob.jpg" alt="Bob" width="100"/>
 </p>
+<p align="center">
+  <img src="Bobboceto.jpg" alt="Bobboceto" width="100"/>
+</p>
+<p align="center">
+  <img src="Boceto1.jpg" alt="Bobceto1" width="100"/>
+</p>
+<p align="center">
+  <img src="CarroBoceto.jpg" alt="Boceto carro" width="100"/>
+</p>
+<p align="center">
+  <img src="CarroNeonix.png" alt="Skin favorita" width="100"/>
+</p>
+
 </div>
 
 
