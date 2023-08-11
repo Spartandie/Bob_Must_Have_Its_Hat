@@ -69,9 +69,6 @@ Skin favorita del equipo:
 <br>
 <br>
 <br>
-<p align="center">
-  <img src=".png" alt="Logo de Fernando Rosas" width="100"/>
-</p>
 <h3 align="center">Documentado por Monroy Salazar Diego Gustavo y Muriel González Diego</h3>
 </div>
 
