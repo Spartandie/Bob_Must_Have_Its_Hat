@@ -30,18 +30,23 @@ Conforme se acercaron la fecha de entrega tuvimos que recortar más cosas como m
 <br>
 <br>
 <br>
+Bob:
 <p align="center">
   <img src="bob.jpg" alt="Bob" width="300"/>
 </p>
+Primer boceto de bob:
 <p align="center">
   <img src="BobBoceto.jpg" alt="Bobboceto" width="300"/>
 </p>
+Primer boceto del juego:
 <p align="center">
   <img src="Boceto1.jpg" alt="Bobceto1" width="300"/>
 </p>
+Boceto del carro:
 <p align="center">
   <img src="CarroBoceto.jpg" alt="Boceto carro" width="300"/>
 </p>
+Skin favorita del equipo:
 <p align="center">
   <img src="CarroNeonix.png" alt="Skin favorita" width="300"/>
 </p>
