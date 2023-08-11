@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System;
+using UnityEngine.SceneManagement;
 
 
 public class ShopManager : MonoBehaviour
@@ -240,15 +241,15 @@ public class ShopManager : MonoBehaviour
             SpriteRenderer skinSpriteRenderer = skinGO.GetComponent<SpriteRenderer>();
             skinSpriteRenderer.sprite = characterSkin.characterSprite;  //Nuestra skin;
             skinGO.transform.parent = shopPanels[i].transform;
-            skinGO.transform.localPosition = new Vector2(0,-25);
+            skinGO.transform.localPosition = new Vector2(0,30);
             skinSpriteRenderer.sortingOrder = 22;
 
             //Si es Neonix escala de forma diferente ya que el sprite tiene mayor resolución
             if(characterSkin.characterName != "Neonix"){
-                skinGO.transform.localScale += new Vector3(-85f, -85f, -85f);   
+                skinGO.transform.localScale += new Vector3(-80f, -80f, -80f);   
             }
             else{
-                skinGO.transform.localScale += new Vector3(-90f, -90f, -90f);   
+                skinGO.transform.localScale += new Vector3(-85f, -85f, -85f);   
             }
             //GameObject skinInItemGO = GameObject.Find("Skin");
             //SpriteRenderer skinInItemGOSpriteRenderer = skinInItemGO.GetComponent<SpriteRenderer>();
@@ -262,6 +263,6 @@ public class ShopManager : MonoBehaviour
 
     public void GoToMenu()
     {
-        Application.LoadLevel(Menu);
+        SceneManager.LoadScene("Main Menu");
     }
 }

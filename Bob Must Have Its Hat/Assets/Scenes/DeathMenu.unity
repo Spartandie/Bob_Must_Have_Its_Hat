@@ -572,7 +572,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &218813851
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -789,6 +789,10 @@ PrefabInstance:
     - target: {fileID: 308365856864354052, guid: 2067e1640ff0508418e33f068cbeb65e, type: 3}
       propertyPath: m_Name
       value: coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 308365856864354052, guid: 2067e1640ff0508418e33f068cbeb65e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 308365856864354053, guid: 2067e1640ff0508418e33f068cbeb65e, type: 3}
       propertyPath: m_SortingOrder
@@ -1601,7 +1605,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &598361305
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6352,7 +6356,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1847927214
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6599,7 +6603,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1878604893
 RectTransform:
   m_ObjectHideFlags: 0
