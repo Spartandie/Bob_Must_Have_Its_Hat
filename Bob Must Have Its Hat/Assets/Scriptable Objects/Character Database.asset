@@ -1,0 +1,85 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60ac3bcb6d12b824ca4eda429ee7e84d, type: 3}
+  m_Name: Character Database
+  m_EditorClassIdentifier: 
+  character:
+  - characterName: Originalli
+    characterSprite: {fileID: 21300000, guid: cb62d887332b06449bd9d1a3638a9d25, type: 3}
+    characterHatlessDeadSprite: {fileID: 21300000, guid: d2d6f2b37a668254f83c7856d304d272, type: 3}
+    bobHatlessCharacterSprite: {fileID: 21300000, guid: c89f179e2d868624eb4ec3efefeff5d6, type: 3}
+    bobCharacterSprite: {fileID: 21300000, guid: 728fa09228c995c47a5228e5d2f69cf3, type: 3}
+  - characterName: Azure
+    characterSprite: {fileID: 21300000, guid: ef42bf7803ee2bb4a8e4249e85a75d6d, type: 3}
+    characterHatlessDeadSprite: {fileID: 21300000, guid: 932d137ed1759eb439404581d96ca1f7, type: 3}
+    bobHatlessCharacterSprite: {fileID: 21300000, guid: 84bfc8c39385bda459eff8e17858828a, type: 3}
+    bobCharacterSprite: {fileID: 21300000, guid: 9cdd5176b25aa82448e27ae048c3ac16, type: 3}
+  - characterName: Ember
+    characterSprite: {fileID: 21300000, guid: f223a50eaf284fd49af136ac47cb4783, type: 3}
+    characterHatlessDeadSprite: {fileID: 21300000, guid: 45dce088aa1cedc4dbc89f16a0e64eb1, type: 3}
+    bobHatlessCharacterSprite: {fileID: 21300000, guid: 740ab9799bee2f64e856f9b0e4c12f78, type: 3}
+    bobCharacterSprite: {fileID: 21300000, guid: 2d295ef5da5fb1f44a82d0a72a9083c6, type: 3}
+  - characterName: Minty
+    characterSprite: {fileID: 21300000, guid: 09616d1a31f594c43aea266adef3702f, type: 3}
+    characterHatlessDeadSprite: {fileID: 21300000, guid: 32b5a0b9de8513f45abe2a4d8ddc521b, type: 3}
+    bobHatlessCharacterSprite: {fileID: 21300000, guid: 0d205c36af3fd88488f6e6d5c724ff3e, type: 3}
+    bobCharacterSprite: {fileID: 21300000, guid: e30291c8b9787b249884b9b1fa2be7ac, type: 3}
+  - characterName: Limonel
+    characterSprite: {fileID: 21300000, guid: f6bef54772e68e742bfbcc7e3a7a2a01, type: 3}
+    characterHatlessDeadSprite: {fileID: 21300000, guid: a15d28f96a9bb454e92d57179fabca4e, type: 3}
+    bobHatlessCharacterSprite: {fileID: 21300000, guid: 1b057a834b04c804db9c96a7b85a5ba1, type: 3}
+    bobCharacterSprite: {fileID: 21300000, guid: c97e7973223c12a4e9819de508abab2c, type: 3}
+  - characterName: Lilith
+    characterSprite: {fileID: 21300000, guid: 17f7a09e074f8224bbaaa8f15c4493ef, type: 3}
+    characterHatlessDeadSprite: {fileID: 21300000, guid: 79c8dce8484cc2b49ac3ba21d24833cc, type: 3}
+    bobHatlessCharacterSprite: {fileID: 21300000, guid: 6ff067bd78084194abb6c7ed89c16aa7, type: 3}
+    bobCharacterSprite: {fileID: 21300000, guid: 37685713aa6e8e64eb9926887d3279e9, type: 3}
+  - characterName: Rosetta
+    characterSprite: {fileID: 21300000, guid: f96483b025caab1438dd27309133d5e2, type: 3}
+    characterHatlessDeadSprite: {fileID: 21300000, guid: b3ce1eaf0be9080418766b886f45a99b, type: 3}
+    bobHatlessCharacterSprite: {fileID: 21300000, guid: 4241fcb1a52e85f4cbc2b18358ad1b14, type: 3}
+    bobCharacterSprite: {fileID: 21300000, guid: 3d539b7008192d94193fe567e5d858c3, type: 3}
+  - characterName: Aqualin
+    characterSprite: {fileID: 21300000, guid: 748696aff7feb714eaafc18aa91c92bc, type: 3}
+    characterHatlessDeadSprite: {fileID: 21300000, guid: 9360dcd58828c604d978a2c0f5fae8b2, type: 3}
+    bobHatlessCharacterSprite: {fileID: 21300000, guid: 0bf4e81c74045d1419217867c86d98ca, type: 3}
+    bobCharacterSprite: {fileID: 21300000, guid: 783c0260b6ff61b41a043e6057263cdd, type: 3}
+  - characterName: Verdona
+    characterSprite: {fileID: 21300000, guid: c30c7c63d94e8dc40a3426dbe7c94001, type: 3}
+    characterHatlessDeadSprite: {fileID: 21300000, guid: e856ea45ac1979248b06ccf5ecdbd8b7, type: 3}
+    bobHatlessCharacterSprite: {fileID: 21300000, guid: ff0989004cecca54690bcf8b92451148, type: 3}
+    bobCharacterSprite: {fileID: 21300000, guid: 55024736c0958b149818cb578d183c5a, type: 3}
+  - characterName: Aurora
+    characterSprite: {fileID: 21300000, guid: 19fe11e2e32626e4d8f7c023b5c6b896, type: 3}
+    characterHatlessDeadSprite: {fileID: 21300000, guid: e004d638820c63d47a15c179fb92083c, type: 3}
+    bobHatlessCharacterSprite: {fileID: 21300000, guid: f31ca98acf0411645896298782472273, type: 3}
+    bobCharacterSprite: {fileID: 21300000, guid: 605f6d3ff5202674b9e016f38792471a, type: 3}
+  - characterName: Vintage
+    characterSprite: {fileID: 21300000, guid: 44337ea1a5702824d8e797ce0073ce74, type: 3}
+    characterHatlessDeadSprite: {fileID: 21300000, guid: 97d989a59edf0ae4088933c03a3b5a93, type: 3}
+    bobHatlessCharacterSprite: {fileID: 21300000, guid: 5dc6afd6ed7ecb64a874380cb454f445, type: 3}
+    bobCharacterSprite: {fileID: 21300000, guid: 1e595d4477a0c244b92a708a9d18527c, type: 3}
+  - characterName: Ghost
+    characterSprite: {fileID: 21300000, guid: 7e3f29e22c84fa44a934edefdbafccfd, type: 3}
+    characterHatlessDeadSprite: {fileID: 21300000, guid: e28980cadfd180d41b9a5cef00401403, type: 3}
+    bobHatlessCharacterSprite: {fileID: 21300000, guid: a8ff509cf7de2b849abdf2dcb24e6f41, type: 3}
+    bobCharacterSprite: {fileID: 21300000, guid: c852a6253e7dc2d49aeda4bf9eefac4f, type: 3}
+  - characterName: Void
+    characterSprite: {fileID: 21300000, guid: 76e9c0c60ede3394bb5673f54ceeca9f, type: 3}
+    characterHatlessDeadSprite: {fileID: 21300000, guid: e236ee8da774b3b4b97c167bc772ef40, type: 3}
+    bobHatlessCharacterSprite: {fileID: 21300000, guid: 02c0057545cd60e45943224535273e9f, type: 3}
+    bobCharacterSprite: {fileID: 21300000, guid: f77b55aab67945b4fbed992c39f259f5, type: 3}
+  - characterName: Neonix
+    characterSprite: {fileID: 21300000, guid: f6c54f83ab7d03a4faea24a1c960a525, type: 3}
+    characterHatlessDeadSprite: {fileID: 21300000, guid: 355e557e8f6476349be524d13e0b054c, type: 3}
+    bobHatlessCharacterSprite: {fileID: 21300000, guid: 8cf54cc86c299b2409880dd4c0078779, type: 3}
+    bobCharacterSprite: {fileID: 21300000, guid: d666d61d362be84438b400320e206788, type: 3}
